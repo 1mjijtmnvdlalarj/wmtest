@@ -1,5 +1,6 @@
 <html>
-
+<head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
 <script type="text/javascript">
 	function getParams(paras){
 		var url = decodeURI(location.href);
@@ -18,19 +19,21 @@
 			return returnValue;
 		}
 	}
+	
+	$(document).ready(function(){
+		  var taowords =getParams('t');
+				var image = decodeURIComponent(getParams('i'));
+				var pt = decodeURIComponent(getParams('pt'));
+				var pb = decodeURIComponent(getParams('pb'));	
+				$('#img').attr('src', image);
+				$('#copy').attr('data-clipboard-text', '￥'+taowords+'￥');
+				$('#taokey').text('￥'+taowords+'￥');
+					$('#pt').text(pt);
+					$('#pb').text(pb);
+		});
 
-	$(function(){
-		var taowords =getParams('t');
-		var image = decodeURIComponent(getParams('i'));
-		var pt = decodeURIComponent(getParams('pt'));
-		var pb = decodeURIComponent(getParams('pb'));	
-		$('#img').attr('src', image);
-		$('#copy').attr('data-clipboard-text', '￥'+taowords+'￥');
-		$('#taokey').text('￥'+taowords+'￥');
-			$('#pt').text(pt);
-			$('#pb').text(pb);
-	})
 </script>
+</head>
 <body>
 <h2 id = "taokey"></h2>
 <img id = "img" src="https://s1.ax1x.com/2018/09/06/i9l2y6.jpg"  alt="上海鲜花港 - 郁金香" />
