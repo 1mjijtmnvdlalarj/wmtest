@@ -1,9 +1,39 @@
 <html>
 
+<script type="text/javascript">
+	function getParams(paras){
+		var url = decodeURI(location.href);
+		// var url = location.href;
+		var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+		var returnValue;
+		for (i = 0; i < paraString.length; i++) {
+			var tempParas = paraString[i].split('=')[0];
+			var parasValue = paraString[i].split('=')[1];
+			if (tempParas === paras)
+				returnValue = parasValue;
+		}
+		if (typeof(returnValue) == "undefined") {
+			return "";
+		} else {
+			return returnValue;
+		}
+	}
 
+	$(function(){
+		var taowords =getParams('t');
+		var image = decodeURIComponent(getParams('i'));
+		var pt = decodeURIComponent(getParams('pt'));
+		var pb = decodeURIComponent(getParams('pb'));	
+		$('#img').attr('src', image);
+		$('#copy').attr('data-clipboard-text', '￥'+taowords+'￥');
+		$('#taokey').text('￥'+taowords+'￥');
+			$('#pt').text(pt);
+			$('#pb').text(pb);
+	})
+</script>
 <body>
-
-<img src="https://s1.ax1x.com/2018/09/06/i9l2y6.jpg"  alt="上海鲜花港 - 郁金香" />
+<h2 id = "taokey"></h2>
+<img id = "img" src="https://s1.ax1x.com/2018/09/06/i9l2y6.jpg"  alt="上海鲜花港 - 郁金香" />
 
 </body>
 </html>
