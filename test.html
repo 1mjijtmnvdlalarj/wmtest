@@ -124,7 +124,7 @@
 				$('#pt').text(pt);
 				$('#pb').text(pb);
 			})
-
+			try{
 			//复制文本
 			var clipboard = new ClipboardJS('.itemCopy');
 			clipboard.on('success',
@@ -182,7 +182,7 @@
 				},
 				false);
 
-			});
+			});}catch(err){alert(err)}
 		</script>
 	</body>
 
