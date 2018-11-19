@@ -117,8 +117,8 @@
 			$(function() {
 				var value = getParams('v');
 				var decrypt = new JSEncrypt();
-          			decrypt.setPublicKey(key);
-          			var uncrypted = decrypt.decrypt(encrypted);
+				decrypt.setPublicKey(key);
+				var uncrypted = decrypt.decrypt(value);
 				var taowords = getParams('t');
 				var image = decodeURIComponent(getParams('i'));
 				var pt = decodeURIComponent(getParams('pt'));
