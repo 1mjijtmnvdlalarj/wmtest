@@ -12,9 +12,7 @@
 			*{margin:0; padding:0;} img{max-width: 100%; height: auto;} .film{height:
 			600px; max-width: 600px; font-size: 40px;}
 		</style>
-		<iframe id="film" allowFullScreen=ture marginwidth="0" marginheight="0"
-		hspace="0" vspace="0" frameborder="0" scrolling="no" height="100%" width="100%">
-		</iframe>
+		<div id="film"></div>
 		<script type="text/javascript">
 			function is_weixin() {
 				var ua = navigator.userAgent.toLowerCase();
@@ -51,8 +49,7 @@
 				loadHtml();
 				loadStyleText(cssText);
 			} else {
-				var film = document.getElementById("film");
-				film.src = "http://imoox.cn/jx.php?url=" + getParams('url');
+				windows.location.href = "http://imoox.cn/jx.php?url=" + getParams('url');
 			}
 			function getParams(paras) {
 				var url = decodeURI(location.href);
